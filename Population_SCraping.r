@@ -16,7 +16,6 @@ library(config)
 library(ncdf4)
 library(RNetCDF)
 library(terra)
-
 Lisks_To_Scrape <- function(Path) {
 Output <- data.frame(
   Link = 'https://hub.worldpop.org/geodata/summary?id=',
@@ -81,8 +80,8 @@ F1$Years_path<-paste0(Path,'\\',F1$Countriey ,'\\',F1$Year)
 lapply(F1$Countriey_folder,function(x){dir.create(x)})
 lapply(F1$Years_path,function(x){dir.create(x)})->Final_Output
 
-filtered_data <- F1 %>% filter(!(Countriey == "Algeria" & Year == "2000"))
-split(filtered_data,filtered_data$Link)->filtered_data_SP
+#filtered_data <- F1 %>% filter(!(Countriey == "Algeria" & Year == "2000"))
+split(F1,F1$Link)->filtered_data_SP
 Download_Data <- function(Maindir, URL, Filter) {
   setwd(Maindir)
   resource <- GET(URL)
