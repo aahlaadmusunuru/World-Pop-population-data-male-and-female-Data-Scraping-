@@ -1,4 +1,22 @@
 # Create initial data frame
+library(rgdal)
+library(raster)
+library(httr)
+library(XML)
+library(RCurl)
+library(dplyr)
+library(MASS)
+library(reshape2)
+library(reshape)
+library(yaml)
+library(sf)
+library(sp)
+library(maptools)
+library(config)
+library(ncdf4)
+library(RNetCDF)
+library(terra)
+
 Lisks_To_Scrape <- function(Path) {
 Output <- data.frame(
   Link = 'https://hub.worldpop.org/geodata/summary?id=',
